@@ -1,0 +1,67 @@
+unit UnFuncoes;
+
+interface
+
+uses
+  FireDAC.Comp.Client, FireDAC.Stan.Def, FireDAC.Stan.Async, FireDAC.DApt, System.SysUtils, Vcl.StdCtrls, Vcl.Forms, Vcl.DBCtrls;
+
+resourcestring
+  sCaptionIncluirRegistro   = ' - Incluindo';
+  sCaptionAlterarRegistro   = ' - Alterando';
+
+type
+  TNumero = class
+    public
+      class procedure DigitaSoNumeroEVirgula(var Key: Char); static;
+  end;
+
+  TFuncao = class
+    strict private
+      class var FNumero: TNumero;
+    public
+      class property Numero: TNumero read FNumero;
+      class constructor Create;
+      class destructor Destroy;
+  end;
+
+implementation
+
+{ TNumero }
+
+class procedure TNumero.DigitaSoNumeroEVirgula(var Key: Char);
+var
+  TextContent: string;
+begin
+  // Permite apenas números, vírgula e backspace
+  if not (Key in ['0'..'9', ',', #8]) then
+    Key := #0 // Anula a tecla se não for número, vírgula ou backspace
+  else if (Key = ',') then
+  begin
+    // Verifica se o controle ativo é TEdit ou TDBEdit e obtém o texto
+    if Screen.ActiveControl is TEdit then
+      TextContent := TEdit(Screen.ActiveControl).Text
+    else if Screen.ActiveControl is TDBEdit then
+      TextContent := TDBEdit(Screen.ActiveControl).Text
+    else
+      Exit;
+
+    // Anula a vírgula se já houver uma no texto
+    if Pos(',', TextContent) > 0 then
+      Key := #0;
+  end;
+end;
+
+{ TFuncao }
+
+class constructor TFuncao.Create;
+begin
+  FNumero := TNumero.Create;
+end;
+
+class destructor TFuncao.Destroy;
+begin
+  FreeAndNil(FNumero);
+end;
+
+end.
+

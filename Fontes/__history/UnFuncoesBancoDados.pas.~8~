@@ -1,0 +1,86 @@
+unit UnFuncoesBancoDados;
+
+interface
+
+uses
+  FireDAC.Comp.Client, System.SysUtils;
+
+type
+  TConfigBancoDados = class
+    strict private
+      FConexao: TFDConnection;
+    public
+      constructor Create;
+      destructor Destroy; override;
+
+      property Conexao: TFDConnection read FConexao;
+  end;
+
+  TConfiguracao = class
+    strict private
+      class var FBancoDados: TConfigBancoDados;
+    public
+      class constructor Create;
+      class destructor Destroy;
+
+      class property BancoDados: TConfigBancoDados read FBancoDados;
+      class function ProximoRegistro(const cNomeTabela, sNomeCampo: string): Integer;
+  end;
+
+implementation
+
+uses
+  UnDM;
+
+{ TConfigBancoDados }
+
+constructor TConfigBancoDados.Create;
+begin
+  inherited Create;
+  FConexao := Dm.ConexaoDB; // Usa a conexão existente no DataModule ou crie uma nova, se necessário
+end;
+
+destructor TConfigBancoDados.Destroy;
+begin
+  FreeAndNil(FConexao);
+  inherited Destroy;
+end;
+
+{ TConfiguracao }
+
+class constructor TConfiguracao.Create;
+begin
+  FBancoDados := TConfigBancoDados.Create;
+end;
+
+class destructor TConfiguracao.Destroy;
+begin
+  FreeAndNil(FBancoDados);
+end;
+
+class function TConfiguracao.ProximoRegistro(const cNomeTabela, sNomeCampo: string): Integer;
+var
+  vSQLQuery: TFDQuery;
+  vSQL: string;
+begin
+  vSQLQuery := TFDQuery.Create(nil);
+  try
+    vSQLQuery.Connection := FBancoDados.Conexao;
+
+    vSQL := Format('SELECT MAX(%s) AS MaxValor FROM %s', [sNomeCampo, cNomeTabela]);
+    vSQLQuery.SQL.Text := vSQL;
+    vSQLQuery.Open;
+
+    // Verifica se o campo MAX(<NomeCampo>) retornou nulo
+    if vSQLQuery.FieldByName('MaxValor').IsNull then
+      Result := 1 // Primeiro registro se ainda não houver nenhum
+    else
+      Result := vSQLQuery.FieldByName('MaxValor').AsInteger + 1;
+
+  finally
+    FreeAndNil(vSQLQuery);
+  end;
+end;
+
+end.
+

@@ -1,0 +1,32 @@
+unit UnFuncoes;
+
+interface
+
+uses
+  FireDAC.Comp.Client, FireDAC.Stan.Def, FireDAC.Stan.Async, FireDAC.DApt, System.SysUtils, Vcl.StdCtrls, Vcl.Forms, Vcl.DBCtrls;
+
+type
+  TFuncao = class
+    public
+      type TNumero = record
+        class procedure DigitaSoNumeroEVirgula(var Key: Char); static;
+      end;
+  end;
+
+implementation
+
+{ TFuncao.TNumero }
+
+class procedure TFuncao.TNumero.DigitaSoNumeroEVirgula(var Key: Char);
+begin
+  // Permite apenas números, vírgula e backspace
+  if not (Key in ['0'..'9', ',', #8]) then
+    Key := #0 // Anula a tecla se não for número, vírgula ou backspace
+  // Permite apenas uma vírgula no texto do TEdit ativo
+  else if (Key = ',') and (Screen.ActiveControl is TEdit) or (Screen.ActiveControl is TDBEdit) and
+          (Pos(',', TEdit(Screen.ActiveControl).Text) > 0) or (Pos(',', TDBEdit(Screen.ActiveControl).Text) > 0) then
+    Key := #0; // Anula se já houver uma vírgula no texto
+end;
+
+end.
+

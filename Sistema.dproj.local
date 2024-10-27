@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/10/24 19:34:48.000.558,=C:\Users\VM Delphi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/10/24 19:35:39.000.149,C:\Teste_Delphi\Fontes\UnInicial.dfm=C:\Users\VM Delphi\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/10/24 19:35:39.000.149,C:\Teste_Delphi\Fontes\UnInicial.pas=C:\Users\VM Delphi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/10/24 19:36:08.000.384,C:\Teste_Delphi\Sistema.dproj=C:\Users\VM Delphi\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/10/24 22:28:41.000.616,=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/24 22:29:16.000.882,C:\Teste_Delphi\Unit1.dfm=C:\Teste_Delphi\Fontes\UnDM.dfm</Transaction>
+    <Transaction>2024/10/24 22:29:16.000.882,C:\Teste_Delphi\Unit1.pas=C:\Teste_Delphi\Fontes\UnDM.pas</Transaction>
+    <Transaction>2024/10/25 00:24:12.000.197,=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/25 00:24:58.000.181,C:\Teste_Delphi\Fontes\UnConsultaProduto.pas=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/25 00:24:58.000.181,C:\Teste_Delphi\Fontes\UnConsultaProduto.dfm=C:\Teste_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2024/10/25 01:00:11.000.408,=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/25 01:00:23.000.502,C:\Teste_Delphi\Fontes\UnFuncoes.pas=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/25 13:07:26.000.436,=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/25 13:07:37.000.376,C:\Teste_Delphi\Unit1.pas=C:\Teste_Delphi\Fontes\UnConsultaCliente.pas</Transaction>
+    <Transaction>2024/10/25 13:07:37.000.376,C:\Teste_Delphi\Unit1.dfm=C:\Teste_Delphi\Fontes\UnConsultaCliente.dfm</Transaction>
+    <Transaction>2024/10/26 11:02:12.000.936,=C:\Teste_Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/10/26 11:02:24.000.672,C:\Teste_Delphi\Unit1.pas=C:\Teste_Delphi\Fontes\UnFuncoesBancoDados.pas</Transaction>
+  </Transactions>
+</BorlandProject>

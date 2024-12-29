@@ -131,5 +131,5 @@ LibPath=Path/para/mysql.dll
 - /Fontes: Código fonte do sistema.
 
 ## Autor
-Desenvolvido por [Jamil Luiz Campeão](https://github.com/jamil-campeao)
-Linkedin: https://www.linkedin.com/in/jamilcampeao/
+- Desenvolvido por [Jamil Luiz Campeão](https://github.com/jamil-campeao)
+- Linkedin: https://www.linkedin.com/in/jamilcampeao/

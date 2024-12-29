@@ -127,10 +127,8 @@ LibPath=Path/para/mysql.dll
 4. Execute o sistema
 
 ## Estrutura do Repositório
-/Aplicacao: Executável do sistema, config.ini, dlls necessárias e script de criação das tabelas.
-/Fontes: Código fonte do sistema.
-/lib: Biblioteca .dll do MySQL Connector necessária para execução.
-config.ini: Arquivo de configuração de acesso ao banco de dados.
+- /Aplicacao: Executável do sistema, config.ini, dlls necessárias e script de criação das tabelas.
+- /Fontes: Código fonte do sistema.
 
 ## Autor
 Desenvolvido por [Jamil Luiz Campeão](https://github.com/jamil-campeao)
